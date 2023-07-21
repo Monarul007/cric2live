@@ -1,0 +1,44 @@
+{
+  "name": "next-kitty",
+  "version": "0.1.0",
+  "description": "Next with Redux Toolkit, tailwindcss Starter Template",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
+    "@reduxjs/toolkit": "^1.9.5",
+    "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
+    "next": "latest",
+    "postcss": "8.4.26",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "^8.1.1",
+    "tailwindcss": "^3.3.3"
+  },
+  "main": "next.config.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Monarul007/next-kitty.git"
+  },
+  "keywords": [
+    "Next.js",
+    "TailwindCSS",
+    "Redux",
+    "Toolkit",
+    "Auth"
+  ],
+  "author": "Monarul Islam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Monarul007/next-kitty/issues"
+  },
+  "homepage": "https://github.com/Monarul007/next-kitty#readme"
+}
