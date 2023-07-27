@@ -1,7 +1,7 @@
 {
-  "name": "next-kitty",
+  "name": "cric2live",
   "version": "0.1.0",
-  "description": "Next with Redux Toolkit, tailwindcss Starter Template",
+  "description": "Cricket Live Score, Statistics, Latest News & Many More",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
+    "@material-tailwind/react": "^2.0.7",
     "@reduxjs/toolkit": "^1.9.5",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
@@ -23,17 +24,22 @@
     "tailwindcss": "^3.3.3"
   },
   "main": "next.config.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Monarul007/next-kitty.git"
+    "url": "git+https://github.com/Monarul007/cric2live.git"
   },
   "keywords": [
     "Next.js",
     "TailwindCSS",
     "Redux",
     "Toolkit",
-    "Auth"
+    "Auth",
+    "Live Cricket",
+    "Live Score",
+    "Latest Cricket Updates",
+    "ICC",
+    "Live Score App",
+    "ICC World Cup"
   ],
   "author": "Monarul Islam",
   "license": "ISC",

@@ -6,6 +6,46 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --background-primary: #205072;
+  --background-secondary: #329D9C;
+  --background-info: #56C596;
+  --background-success: #7BE495;
+  --background-light: #CFF4D2;
+  --background-gradient-primary: linear-gradient(135deg, hsla(205, 56%, 29%, 1) 0%, hsla(179, 52%, 41%, 1) 70%);
+  --background-gradient-secondary: linear-gradient(135deg, hsla(179, 52%, 41%, 1) 0%, hsla(155, 49%, 55%, 1) 70%);
+  --background-gradient-info: linear-gradient(135deg, hsla(155, 49%, 55%, 1) 0%, hsla(135, 66%, 69%, 1) 70%);;
+  --background-gradient-success: linear-gradient(135deg, hsla(135, 66%, 69%, 1) 0%, hsla(125, 63%, 88%, 1) 70%);
+  --background-gradient-light: linear-gradient(135deg, hsla(125, 63%, 88%, 1) 0%, hsla(0, 0%, 100%, 1) 70%);
+  --cib-color-fill-accent-gradient-quaternary: linear-gradient(90deg, rgb(236, 242, 245) 0%, 1.3089%, rgb(234, 243, 245) 2.6178%, 17.4084%, rgb(232, 241, 242) 32.199%, 36.2565%, rgb(229, 241, 242) 40.3141%, 45.0262%, rgb(227, 240, 242) 49.7382%, 51.8325%, rgb(226, 239, 245) 53.9267%, 57.199%, rgb(224, 239, 245) 60.4712%, 62.9581%, rgb(220, 237, 245) 65.445%, 66.2304%, rgb(220, 237, 245) 67.0157%, 68.0628%, rgb(218, 236, 244) 69.1099%, 75.1309%, rgb(214, 233, 240) 81.1518%, 82.5916%, rgb(211, 231, 240) 84.0314%, 84.4241%, rgb(212, 231, 239) 84.8168%, 86.911%, rgb(210, 230, 239) 89.0052%, 94.5026%, rgb(207, 227, 236) 100%);
+  --cib-color-background-surface-card-primary: rgba(255,255,255,0.7);
+  --cib-color-background-surface-card-secondary: rgba(255,255,255,0.4);
+  --cib-color-background-surface-card-tertiary: #FFFFFF;
+  --cib-color-background-surface-card-disabled: rgba(255,255,255,0.4);
+  --cib-border-radius-none: 0;
+  --cib-border-radius-small: 2px;
+  --cib-border-radius-medium: 4px;
+  --cib-border-radius-large: 8px;
+  --cib-border-radius-extra-large: 12px;
+  --cib-border-radius-circular: 10000px;
+  --cib-shadow-card: 0px 0.3px 0.9px rgba(0, 0, 0, 0.12), 0px 1.6px 3.6px rgba(0, 0, 0, 0.16);
+  --cib-shadow-card-raised: 0px 0.6px 1.8px rgba(0, 0, 0, 0.12), 0px 3.2px 7.2px rgba(0, 0, 0, 0.16);
+  --cib-shadow-dialog: 0px 4.8px 14.4px rgba(0, 0, 0, 0.18), 0px 25.6px 57.6px rgba(0, 0, 0, 0.22);
+  --cib-shadow-flyout: 0px 1.2px 3.6px rgba(0, 0, 0, 0.16), 0px 6.4px 14.4px rgba(0, 0, 0, 0.2);
+  --cib-shadow-layer: 0px 0.15px 0.45px rgba(0, 0, 0, 0.12), 0px 0.8px 1.8px rgba(0, 0, 0, 0.16);
+  --cib-shadow-panel: 0px 14px 28px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.2);
+  --cib-shadow-tooltip: 0px 1.2px 3.6px rgba(0, 0, 0, 0.16), 0px 6.4px 14.4px rgba(0, 0, 0, 0.2);
+  --gradient-mid-color: rgba(245,245,245,0.8);
+  --gradient-color: #F5F5F5;
+  --radial-gradient-color: rgba(245,245,245,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.surface {
+  display: flex;
+  flex-direction: column;
+  max-block-size: 100%;
+  border-radius: var(--cib-border-radius-large);
+  box-shadow: var(--cib-shadow-card);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,10 +58,23 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--gradient-color);
+}
+
+.bg-gradient-primary{
+  background: var(--background-gradient-primary);
+}
+
+.newscard-overlay{
+  background: linear-gradient( 180deg,transparent 0%,var(--gradient-mid-color) 62.5%,var(--gradient-color) 100% );
+}
+
+.videnewscard-overlay{
+  background: radial-gradient(100% 100% at 0% 100%, rgba(17, 17, 17, 0.8) 0%, rgba(34, 34, 34, 0) 100%), linear-gradient(0deg, rgb(17, 17, 17) 0%, rgba(20, 20, 20, 0.8) 32.59%, rgba(34, 34, 34, 0) 100%);
+}
+
+@media (max-width: 768px) {
+  .newscard-overlay{
+    background: linear-gradient( 180deg,transparent 0%,var(--gradient-mid-color) 40%,var(--gradient-color) 55% );
+  }
 }
