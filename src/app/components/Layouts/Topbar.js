@@ -4,14 +4,14 @@ import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ExclamationTriangleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
-import ScoreCardMini from '../designs/ScoreCardMini';
 import NewsCard from '../designs/NewsCard';
-import ScoreCardMiniLive from '../designs/ScoreCardMiniLive';
-import ScoreCardMiniScheduled from '../designs/ScoreCardMiniScheduled';
 import NewsCardMiniWithoutThumb from '../designs/NewsCardMiniWithoutThumb';
 import VideoNewsCardMini from '../designs/VideoNewsCardMini';
-import ScoreCardBig from '../designs/ScoreCardBig';
-
+import ScoreCardMini from '../designs/scorecards/ScoreCardMini';
+import ScoreCardMiniLive from '../designs/scorecards/ScoreCardMiniLive';
+import ScoreCardMiniScheduled from '../designs/scorecards/ScoreCardMiniScheduled';
+import ScoreCardDetailsLive from '../designs/scorecards/details/ScoreCardDetailsLive';
+import ScoreCardBigCompleted from '../designs/scorecards/ScoreCardBigCompleted';
 
 export default function TopBar(){
 
@@ -154,8 +154,13 @@ export default function TopBar(){
                 </div>
                 <br></br>
                 <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 md:max-w-4xl md:mx-auto gap-4'>
-                    <ScoreCardBig />
-                    <ScoreCardBig />
+                    <ScoreCardDetailsLive />
+                    <ScoreCardDetailsLive />
+                </div>
+                <br></br>
+                <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 md:max-w-4xl md:mx-auto gap-4'>
+                    <ScoreCardBigCompleted />
+                    <ScoreCardBigCompleted />
                 </div>
                 <br></br>
                 <br></br>

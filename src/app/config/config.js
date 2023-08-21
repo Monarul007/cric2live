@@ -1,0 +1,1 @@
+export const ScoreAPIBaseURL = 'https://hs-consumer-api.espncricinfo.com/v1';

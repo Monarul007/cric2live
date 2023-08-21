@@ -73,6 +73,26 @@ body {
   background: radial-gradient(100% 100% at 0% 100%, rgba(17, 17, 17, 0.8) 0%, rgba(34, 34, 34, 0) 100%), linear-gradient(0deg, rgb(17, 17, 17) 0%, rgba(20, 20, 20, 0.8) 32.59%, rgba(34, 34, 34, 0) 100%);
 }
 
+.gradient-nz{
+  background: radial-gradient(125% 134.66% at 0.22% 1.67%, rgba(0,0,14,0.35) 0%, rgba(255, 255, 255, 0) 65%);
+}
+
+.gradient-sl{
+  background: radial-gradient(125% 115.83% at 99.25% -2.5%, rgba(7,65,176,0.35) 0%, rgba(255, 255, 255, 0) 65%);
+}
+
+.gradient-ind{
+  background: radial-gradient(125% 134.66% at 0.22% 1.67%, rgba(3,72,223,0.35) 0%, rgba(255, 255, 255, 0) 65%);
+}
+
+.gradient-aus{
+  background: radial-gradient(125% 115.83% at 99.25% -2.5%, rgba(248,239,0,0.35) 0%, rgba(255, 255, 255, 0) 65%);
+}
+
+.gradient-eng{
+  background: radial-gradient(125% 115.83% at 99.25% -2.5%, rgba(28,229,212,0.35) 0%, rgba(255, 255, 255, 0) 65%);
+}
+
 @media (max-width: 768px) {
   .newscard-overlay{
     background: linear-gradient( 180deg,transparent 0%,var(--gradient-mid-color) 40%,var(--gradient-color) 55% );

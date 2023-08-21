@@ -1,10 +1,99 @@
 // pages/blog.js (Blog Listing Page)
-"use client";
+// "use client";
 
+// import { useSelector } from 'react-redux';
 import Header from '../components/Layouts/Header';
-import { useAppSelector } from '../redux/store';
+// import { useAppSelector } from '../redux/store';
 
-const Blog = () => {
+async function getStatisticsData() {
+  const res = await fetch('https://api.msn.com/sports/statistics?' + new URLSearchParams({
+    apikey: 'kO1dI4ptCTTylLkPL1ZTHYP8JhLKb8mRDoA5yotmNJ', 
+    version: '1.0',
+    cm: 'en-xl', 
+    activityId: '135265A2-2261-405E-8434-77AB5E81765C',
+    ocid: 'sports-gamecenter', 
+    it: 'web',
+    user: 'm-0D3650A82C0F68DE1EA943F32D0E6901',
+    scn: 'ANON',
+    ids: 'SportzInteractive_Cricket_ICC_2023_Game_217027',
+    type: 'Game', 
+    scope: 'Playergame',
+    sport: 'Cricket',
+    leagueid: 'Cricket_ICC'
+  }));
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+ 
+  const responseData = await res.json();
+  return responseData.value[0].statistics[0];
+}
+
+async function getGamesData() {
+  const res = await fetch('https://api.msn.com/sports/games?' + new URLSearchParams({
+    apikey: 'kO1dI4ptCTTylLkPL1ZTHYP8JhLKb8mRDoA5yotmNJ', 
+    version: '1.0',
+    cm: 'en-xl', 
+    tzoffset: '6',
+    activityId: '135265A2-2261-405E-8434-77AB5E81765C',
+    ocid: 'sports-gamecenter', 
+    it: 'web',
+    user: 'm-0D3650A82C0F68DE1EA943F32D0E6901',
+    scn: 'ANON',
+    ids: '217027',
+    scope: 'Full'
+  }));
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+ 
+  const responseData = await res.json();
+  return responseData.value[0].games[0];
+}
+
+async function getLiveData() {
+  const res = await fetch('https://browser.events.data.msn.com/OneCollector/1.0', {
+    method: 'POST',
+    body: JSON.stringify({
+      cors: 'true',
+      'content-type': 'application/x-json-stream',
+      'client-id':'NO_AUTH',
+      'client-version': '1DS-Web-JS-3.2.8',
+      apikey: '0ded60c75e44443aa3484c42c1c43fe8-9fc57d3f-fdac-4bcf-b927-75eafe60192e-7279',
+      'upload-time': '1690648382532',
+      'ext.intweb.msfpc':'GUID%3D3e18170608174b36bc7705f918e88700%26HASH%3D3e18%26LV%3D202307%26V%3D4%26LU%3D1690467520734',
+      w:'0',
+      anoncknm: 'anon',
+      NoResponseBody: false
+    }),
+    headers: {
+      'Content-type': 'application/x-json-stream; charset=UTF-8',
+    }
+  }).then((response) => {
+    // 1. check response.ok
+    if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(response); // 2. reject instead of throw
+  })
+  .catch((response) => {
+    console.log(response.status, response.statusText);
+    // 3. get error messages, if any
+    response.json().then((json) => {
+      console.log('json:', json);
+    })
+  });
+}
+
+export default async function Blog() {
+
+  const statisticsData = await getStatisticsData();
+  const gamesData = await getGamesData();
+  const liveStatData = await getLiveData();
+
+  console.log('jsonData', liveStatData);
   const posts = [
     {
       id: 1,
@@ -25,23 +114,9 @@ const Blog = () => {
     },
     // More posts...
   ]
-  const blogPosts = useAppSelector((state) => state.blog.blogPosts);
+  // const blogPosts = useSelector((state) => state.blog.blogPosts);
 
-  return (
-    //<div>
-    //   <h1>Blog Posts</h1>
-    //   {blogPosts.map((post) => (
-    //     <div key={post.id}>
-    //       <h2>{post.title}</h2>
-    //       <p>{post.content}</p>
-    //       <ul>
-    //         {post.comments.map((comment, index) => (
-    //           <li key={index}>{comment}</li>
-    //         ))}
-    //       </ul>
-    //     </div>
-    //   ))}
-    // </div>
+  return (<>
     <div className="py-24 sm:py-32">
       <Header />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -91,8 +166,8 @@ const Blog = () => {
         </div>
       </div>
     </div>
-    
-  );
+    <div>
+      Data set
+    </div>
+  </>);
 };
-
-export default Blog;

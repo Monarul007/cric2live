@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function ScoreCardMiniScheduled(){
 
     return(<>
-        <Link href="/" className="surface w-full sm:max-w-xs text-xs">
+        <div className="surface w-full sm:max-w-xs text-xs">
             <div className="flex flex-row justify-between items-start py-2">
                 <div className="flex-none w-1/4 text-center">
                     <Image
@@ -38,6 +38,6 @@ export default function ScoreCardMiniScheduled(){
                     <span className="font-semibold">SL</span>
                 </div>
             </div>
-        </Link>
+        </div>
     </>)
 }
